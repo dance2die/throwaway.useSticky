@@ -1,17 +1,17 @@
-import * as React from "react";
-import { render } from "react-dom";
+import * as React from 'react'
+import { render } from 'react-dom'
 
-import useSticky from "./useSticky";
+import useSticky from './useSticky'
 
-import "./styles.scss";
+import './styles.scss'
 
 function App() {
   const {
     getContainerProps,
     getStickyProps,
     containerRef,
-    stickyRef
-  } = useSticky();
+    stickyRef,
+  } = useSticky()
 
   // prettier-ignore
   const onChange = (e: any) => {console.log(`onChange`, e)}
@@ -24,7 +24,7 @@ function App() {
     <section
       key={i}
       ref={containerRef}
-      {...getContainerProps({ className: "content" })}
+      {...getContainerProps({ className: 'content' })}
     >
       <h1
         ref={stickyRef}
@@ -32,17 +32,17 @@ function App() {
           onChange,
           onStuck,
           onUnstuck,
-          className: "header"
+          className: 'header',
         })}
       >
         Header {i}
       </h1>
       <article>This is the content for {i}</article>
     </section>
-  ));
+  ))
 
-  return <div className="App">{contentElements}</div>;
+  return <div className="App">{contentElements}</div>
 }
 
-const rootElement = document.getElementById("root");
-render(<App />, rootElement);
+const rootElement = document.getElementById('root')
+render(<App />, rootElement)
